@@ -1,0 +1,48 @@
+/* src/components/Menu.css */
+
+.menu {
+    background-image: linear-gradient(to top right, transparent 25%, #D48947 250%);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 85vh;
+    width: 100%;
+    text-align: center;
+    padding-top: 15vh;
+}
+
+.container {
+    width: 60%;
+    margin: auto;
+    border: 3px solid;
+    border-image: linear-gradient(to bottom left, transparent 0%, #D48947 100%);
+    border-image-slice: 1;
+    color: #eee;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.containerH1 {
+    color: #D48947;
+}
+
+.right-side {
+width: 50%;
+color: #F5F5F5;
+}
+
+.homepage-content {
+text-align: center;
+}
+
+.italicText {
+    font-style: italic;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .container {
+      width: 100%;
+      margin-top: 25px;
+    }
+}

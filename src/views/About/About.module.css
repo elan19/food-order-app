@@ -1,0 +1,157 @@
+
+* { margin: 0; padding: 0; }
+
+body {
+    width: 100%;
+    background-color: #111;
+}
+
+.menu {
+    background-color: #111;
+    min-height: 85vh;
+    width: 100%;
+    text-align: center;
+    padding-top: 15vh;
+}
+
+.imgBanner {
+    min-height: 600px;
+    width: 100%;
+    background-image: url('../../../public/burger-on-grill-banner2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0px 4px 50px -3px rgba(255, 255, 255, 0.1);
+    margin-top: -150px;
+}
+
+.container {
+    width: 100%;
+    color: #eee;
+    margin-top: 100px;
+    display: block;
+}
+
+h1 {
+    color: #D48947;
+}
+
+.topLeft {
+    width: 37.5%;
+    margin-left: 7.5%;
+    margin-right: 5%;
+    padding: 0;
+    height: 200px;
+    float: left;
+}
+
+.pictureDiv {
+    width: 37.5%;
+    margin-left: 7.5%;
+    margin-right: 5%;
+    padding: 0;
+    height: 300px;
+    float: left;
+    margin-top: 100px;
+}
+
+.aboutPicture {
+    height: 300px;
+    margin: 0;
+    padding: 0;
+    box-shadow: -5px 3px 10px #D48947;
+}
+
+.topRight {
+    width: 37.5%;
+    margin-left: 5%;
+    margin-right: 7.5%;
+    padding: 0;
+    margin-top: 350px;
+    margin-bottom: 150px;
+    height: 200px;
+    float: right;
+}
+
+.botLeft {
+    width: 37.5%;
+    margin-left: 7.5%;
+    margin-right: 5%;
+    padding: 0;
+    margin-top: 150px;
+    float: left;
+}
+
+.botRight {
+    width: 37.5%;
+    height: 300px;
+    margin-left: 5%;
+    margin-right: 7.5%;
+    background-image: radial-gradient(ellipse closest-side, rgba(255, 174, 0, 0.13), transparent);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    float: right;
+}
+
+
+@media only screen and (max-width: 1000px) {
+
+    .topLeft {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .topRight {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 100px;
+        margin-bottom: 0px;
+    }
+
+    p {
+        word-spacing: 1px;
+    }
+
+    .pictureDiv {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 100px;
+    }
+
+    .botLeft {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 100px;
+        margin-bottom: 200px;
+    }
+
+    .botRight {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .imgBanner {
+        min-height: 300px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        min-height: 1250px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .pictureDiv {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 200px;
+    }
+}

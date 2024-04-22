@@ -1,0 +1,38 @@
+.menu {
+    background-image: url('../../../public/background-menu.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 85vh;
+    width: 100%;
+    text-align: center;
+    padding-top: 15vh;
+}
+
+.detail {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.customerDetailsH2 {
+    font-size: 25px;
+    color: #D48947;
+}
+
+.customerDetails {
+    font-size: 20px;
+}
+
+.items {
+    font-size: 18px;
+    margin-bottom: 50px;
+}
+
+.itemsH2 {
+    font-size: 25px;
+    color: #D48947;
+}
+
+.totalPriceH2 {
+    color: #D48947;
+}

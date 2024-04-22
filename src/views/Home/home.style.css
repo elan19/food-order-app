@@ -1,0 +1,75 @@
+/* src/components/HomePage.css */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.home-body {
+    text-align: center;
+    background-image: url('../../../public/background-test.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.home-container {
+    display: flex;
+    align-items: center;
+}
+
+.right-side {
+    margin-right: 60%;
+    margin-left: 10%;
+    margin-top: 475px;
+    color: #F5F5F5;
+}
+
+.right-side h1 {
+    font-size: 42px;
+}
+  
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 22px;
+    background-color: #D48947;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin-top: 10px;
+    transition: 0.3s background-color;
+}
+  
+.btn:hover {
+    background-color: #965d2c;
+}
+
+@media only screen and (max-width: 800px) {
+  .right-side {
+    width: 100%;
+    margin-left: 5%;
+  }
+
+  .right-side h1 {
+    width: 100%;
+    font-size: 26px;
+   }
+
+  .btn {
+    margin-left: 5%;
+  }
+}
+

@@ -1,0 +1,169 @@
+.liMenu {
+    list-style-type: none;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.AllMenuH2 {
+    display: inline-block;
+    color: #D48947;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.selectedItems {
+    width: 50%;
+    margin: auto;
+    margin-top: 25px;
+    border-top: 2px solid #965d2c;
+    padding-top: 25px;
+}
+
+.placeOrder {
+    background-color: #965d2c;
+    color: #fff; /* White text color */
+    border: none;
+    margin-top: 20px;
+    padding: 10px 25px;
+    font-size: 14px; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+    font-style: italic;
+}
+
+.placeOrder:hover {
+    background-color: #D48947;
+}
+
+/* Button style */
+.AddButton {
+    background-color: #D48947; /* Yellow color */
+    color: #fff; /* White text color */
+    border: none;
+    margin-left: 5px;
+    padding: 5px 5px;
+    font-size: 14px; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+    font-style: italic;
+}
+  
+.AddButton:hover {
+    background-color: #965d2c; /* Darker yellow color on hover */
+}
+
+.category {
+    transition: max-height 0.3s, opacity 0.3s, visibility 1s ease-in-out;
+}
+  
+.category-expanded {
+    margin-bottom: 50px;
+    max-height: 200px;
+    opacity: 1;
+    visibility: visible;
+}
+  
+.category-collapsed {
+    max-height: 0px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.infoCardOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it appears above other content */
+}
+  
+.infoCard {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    max-width: 80%;
+}
+  
+.infoCard h3 {
+    margin-top: 0;
+}
+  
+.infoCard p {
+    margin-bottom: 10px;
+}
+  
+.infoCard button {
+    padding: 8px 16px;
+    background-color: #D48947;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+.infoCard button:hover {
+    background-color: #965d2c;
+}
+
+
+.userForm {
+    width: 50%;
+    margin-top: 50px;
+    margin-left: 25%;
+    border-top: 2px solid #965d2c;
+}
+
+.placeOrderInput {
+    width: 50%;
+    display: block;
+    margin-left: 25%;
+    margin-top: 5px;
+    height: 35px;
+}
+
+.submitOrderH2 {
+    margin: 25px 0px;
+    color: #D48947;
+}
+
+.placeOrderInput:focus {
+    outline: none;
+    border: 1px solid #994902
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+    .liMenu {
+        font-size: 16px;
+        margin-top: 20px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .placeOrderInput {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .category-expanded {
+        margin-bottom: 100px;
+    }
+
+    .userForm {
+        width: 90%;
+        margin-top: 50px;
+        margin-left: 5%;
+    }
+}
