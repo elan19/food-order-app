@@ -1,8 +1,12 @@
+# About this project
+
+This project is a webbased food-ordering system which lets the user select between Burgers, Fries and Drinks and then make the order which get sent to the database.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Available Scriptss
 
 In the backend project directory, you can run:
 
