@@ -37,6 +37,35 @@
     background-color: #D48947;
 }
 
+.placeOrderSelect {
+    background-color: #111;
+    color: #888;
+    padding: 0 5px;
+    border: 1px solid #D48947;
+    width: 51%;
+    height: 40px;
+    margin: auto;
+    display: block;
+    margin-top: 10px;
+    margin-left: 25%;
+}
+
+.placeOrderSelect:focus {
+    outline: none;
+}
+
+.infoSpan {
+    font-size: 12px;
+    position: relative;
+    top: 50px;
+    left: -35%;
+}
+
+.infoTextSwish {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
 /* Button style */
 .AddButton {
     background-color: #D48947; /* Yellow color */
@@ -140,12 +169,104 @@
     border: 1px solid #994902
 }
 
+.logoImage {
+    margin-top: 10px;
+    width: 200px;
+    cursor: pointer;
+}
 
+.qrImage {
+    margin-top: 10px;
+    width: 200px;
+    cursor: pointer;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+}
+
+
+
+@media only screen and (max-width: 1800px) {
+    .liMenu {
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    .placeOrderInput {
+        width: 70%;
+        margin-left: 15%;
+    }
+
+    .placeOrderSelect {
+        width: 71%;
+        margin-left: 15%;
+    }
+
+    .infoSpan {
+        margin-right: 40%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .liMenu {
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    .placeOrderInput {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .placeOrderSelect {
+        width: 92%;
+        margin-left: 5%;
+    }
+
+    .infoSpan {
+        margin-right: 60%;
+    }
+}
 
 @media only screen and (max-width: 1000px) {
     .liMenu {
         font-size: 16px;
         margin-top: 20px;
+    }
+
+    .placeOrderInput {
+        width: 60%;
+        margin-left: 20%;
+    }
+
+    .placeOrderSelect {
+        width: 62%;
+        margin-left: 20%;
+    }
+
+    .infoSpan {
+        margin-right: 20%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .placeOrderInput {
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .placeOrderSelect {
+        width: 82%;
+        margin-left: 10%;
+    }
+
+    .infoSpan {
+        margin-right: 50%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .infoSpan {
+        margin-right: 50%;
     }
 }
 
@@ -153,6 +274,25 @@
     .placeOrderInput {
         width: 100%;
         margin-left: 0;
+    }
+
+    .placeOrderSelect {
+        width: 102%;
+        margin-left: 0;
+    }
+
+    .infoSpan {
+        position: unset;
+        margin-top: 10px;
+        margin-right: 0px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .userForm {
+        width: 75%;
+        margin-top: 50px;
+        margin-left: 12.5%;
     }
 }
 

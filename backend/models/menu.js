@@ -14,9 +14,9 @@ const menuModel = {
   },
 
   create: (req, res) => {
-    const { itemName, price } = req.body;
-    const sql = 'INSERT INTO Menu (itemName, price) VALUES (?, ?)';
-    db.run(sql, [itemName, price], function(err) {
+    const { name, category, ingredients, price } = req.body;
+    const sql = 'INSERT INTO Menu (name, category, ingredients, price) VALUES (?, ?, ?, ?)';
+    db.run(sql, [name, category, ingredients, price], function(err) {
       if (err) {
         console.error('Error creating menu item:', err);
         res.status(500).json({ message: 'Failed to create menu item' });

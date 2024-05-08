@@ -1,4 +1,4 @@
-import { db } from '../firebase.js'; // Adjust the path as needed
+import { db } from '../firebase.js';
 import { collection, getDocs, query } from 'firebase/firestore';
 
 const menuModel = {
@@ -11,47 +11,6 @@ const menuModel = {
         console.error(error);
       }
     },
-  
-    /*create: async function (menuItem) {
-      try {
-        const docRef = await addDoc(collection(db, 'menu'), menuItem);
-        return docRef.id;
-      } catch (error) {
-        console.error(error);
-      }
-    },
-  
-    update: async function (menuId, menuItem) {
-      try {
-        await setDoc(doc(db, 'menu', menuId), menuItem);
-        return 'Success';
-      } catch (error) {
-        console.error(error);
-      }
-    },
-  
-    delete: async function (menuId) {
-      try {
-        await deleteDoc(doc(db, 'menu', menuId));
-        return 'Success';
-      } catch (error) {
-        console.error(error);
-      }
-    },
-  
-    getOne: async function (menuId) {
-      try {
-        const docSnapshot = await getDoc(doc(db, 'menu', menuId));
-        if (docSnapshot.exists()) {
-          return { id: docSnapshot.id, ...docSnapshot.data() };
-        } else {
-          console.error('No such document!');
-          return null;
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    },*/
 
     getCategory: async function (category) {
       try {

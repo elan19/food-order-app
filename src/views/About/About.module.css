@@ -22,7 +22,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     box-shadow: 0px 4px 50px -3px rgba(255, 255, 255, 0.1);
-    margin-top: -150px;
+    margin-top: -200px;
 }
 
 .container {
@@ -152,6 +152,10 @@ h1 {
         width: 80%;
         margin-left: 10%;
         margin-right: 10%;
-        margin-top: 200px;
+        margin-top: 150px;
+    }
+
+    .container {
+        margin-bottom: 150px;
     }
 }

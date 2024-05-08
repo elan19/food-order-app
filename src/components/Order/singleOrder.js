@@ -6,7 +6,7 @@ import styles from './SingleOrder.module.css';
 
 const SingleOrder = () => {
     const [order, setOrder] = useState(null);
-    const { orderId } = useParams(); // Get the orderId from the URL parameters
+    const { orderId } = useParams();
 
     // Function to load order data from localStorage
     const loadOrderDataFromStorage = () => {
@@ -37,7 +37,6 @@ const SingleOrder = () => {
                 localStorage.setItem('lastVisitedOrderPage', window.location.href);
             } catch (error) {
                 console.error('Error fetching order:', error);
-                // Optionally, navigate to an error page or display an error message
             }
         };
 
@@ -51,7 +50,6 @@ const SingleOrder = () => {
 
         // Cleanup function
         return () => {
-            // Cleanup logic if needed
         };
     }, [orderId]);
 

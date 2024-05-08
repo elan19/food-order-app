@@ -66,7 +66,7 @@ a {
     padding: 10px 20px;
     margin: 0 auto;
     font-size: 16px;
-    background-color: #D48947;
+    background-color: #965d2c;
     color: #fff;
     text-decoration: none;
     border: none;
@@ -81,7 +81,7 @@ a {
 }
   
 .btn:hover {
-    background-color: #965d2c;
+    background-color: #D48947;
 }
 
 @media only screen and (max-width: 600px) {

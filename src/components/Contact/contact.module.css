@@ -1,0 +1,170 @@
+.container {
+    width: 60%;
+    margin: auto;
+    color: #eee;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-image: linear-gradient(to top right, transparent 25%, #D48947 200%);
+    box-shadow: -5px 7px 20px #D48947;
+}
+
+.form {
+    margin-top: 75px;
+    min-height: 375px;
+}
+
+.formGroup {
+    width: 250px;
+    margin-left: 10%;
+    height: 30px;
+}
+
+.formGroupText {
+    width: 40%;
+    margin-left: 10%;
+    min-height: 175px;
+}
+
+input {
+    width: 100%;
+    background-color: #111;
+    border: 1px solid #D48947;
+    height: 25px;
+    padding-left: 5px;
+    color: #eee;
+    font-size: 14px;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid #c4610b;
+}
+
+textarea {
+    width: 100%;
+    margin-top: 25px;
+    padding-left: 5px;
+    padding-top: 5px;
+    background-color: #111;
+    border: 1px solid #D48947;
+    color: #eee;
+    font-size: 15px;
+}
+
+textarea:focus {
+    outline: none;
+    border: 2px solid #c4610b
+}
+
+.rightSideText {
+    width: 30%;
+    float: right;
+    display: block;
+    margin-right: 10%;
+}
+
+.buttonDiv {
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.button {
+    display: block;
+    font-size: 22px;
+    background-color: #D48947;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    transition: 0.3s background-color;
+}
+
+.button:hover {
+    background-color: #965d2c;
+}
+
+@media only screen and (max-width: 1200px) {
+    .formGroupText {
+        width: 70%;
+        margin-left: 10%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .container {
+      width: 100%;
+    }
+
+    .formGroup {
+        width: 100%;
+        margin-left: 0%;
+    }
+
+    input {
+        width: 50%;
+    }
+
+    .formGroupText {
+        width: 100%;
+        margin-left: 0%;
+    }
+
+    textarea {
+        width: 50%;
+    }
+
+    .buttonDiv {
+        width: 50%;
+        margin-left: 25%;
+    }
+
+    .button {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+      width: 100%;
+    }
+
+    .formGroup {
+        width: 100%;
+        margin-left: 0%;
+    }
+
+    input {
+        width: 90%;
+    }
+
+    .formGroupText {
+        width: 100%;
+        margin-left: 0%;
+    }
+
+    textarea {
+        width: 90%;
+    }
+
+    .buttonDiv {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .button {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .container {
+      width: 100%;
+      margin-top: 50px;
+    }
+}

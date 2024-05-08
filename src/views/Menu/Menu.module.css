@@ -15,6 +15,7 @@
     width: 60%;
     margin: auto;
     border: 3px solid;
+    background: #0000005d;
     border-image: linear-gradient(to bottom left, transparent 0%, #D48947 100%);
     border-image-slice: 1;
     color: #eee;

@@ -20,9 +20,8 @@ const orderModel = {
 
   create: function (req, res) {
     //const { customerName, totalPrice, items } = req.body;
-    console.log(req);
-    const sql = 'INSERT INTO "Order" (customerName, phoneNumber, email, totalPrice, items) VALUES (?, ?, ?, ?, ?)';
-    const params = [req.customerName, req.phoneNumber, req.email, req.totalPrice, req.items];
+    const sql = 'INSERT INTO "Order" (customerName, phoneNumber, email, items, totalPrice) VALUES (?, ?, ?, ?, ?)';
+    const params = [req.customerName, req.phoneNumber, req.email, req.items, req.totalPrice];
     //db.run(sql, [customerName, phoneNumber, email, totalPrice, JSON.stringify(items)], function(err) {
     db.run(sql, params, function (error) {
       if (error) {
@@ -47,14 +46,14 @@ const orderModel = {
     });
   },
 
-  delete: (orderId, res) => {
-    const sql = 'DELETE FROM "Order" WHERE orderId = ?';
-    db.run(sql, [orderId], function(err) {
+  delete: (res) => {
+    const sql = 'DELETE FROM "Order"';
+    db.run(sql, function(err) {
       if (err) {
-        console.error('Error deleting order:', err);
-        res.status(500).json({ message: 'Failed to delete order' });
+        console.error('Error deleting orders:', err);
+        res.status(500).json({ message: 'Failed to delete orders' });
       } else {
-        res.status(200).json({ message: 'Order deleted successfully', rowsAffected: this.changes });
+        res.status(200).json({ message: 'Orders deleted successfully', rowsAffected: this.changes });
       }
     });
   },

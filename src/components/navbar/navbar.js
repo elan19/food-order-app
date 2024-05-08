@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './navbar.style.css'; // Import CSS for Navbar styling
+import './navbar.style.css';
 
 // Navbar component
 
@@ -32,7 +32,6 @@ function Navbar() {
                 Contact
               </Link>
             </li>
-            {/* More links can be added here */}
           </ul>
           
         </nav>

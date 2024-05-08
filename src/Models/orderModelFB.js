@@ -1,4 +1,4 @@
-import { db } from '../firebase.js'; // Adjust the path as needed
+import { db } from '../firebase.js';
 import { collection, getDocs, getDoc, doc, addDoc } from 'firebase/firestore';
 
 const orderModel = {
@@ -20,24 +20,6 @@ const orderModel = {
         console.error(error);
       }
     },
-  
-    /*update: async function (orderId, orderItem) {
-      try {
-        await setDoc(doc(db, 'order', orderId), orderItem);
-        return 'Success';
-      } catch (error) {
-        console.error(error);
-      }
-    },
-  
-    delete: async function (orderId) {
-      try {
-        await deleteDoc(doc(db, 'order', orderId));
-        return 'Success';
-      } catch (error) {
-        console.error(error);
-      }
-    },*/
   
     getOne: async function (orderId) {
       try {

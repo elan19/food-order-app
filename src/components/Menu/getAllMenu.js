@@ -9,13 +9,20 @@ import orderModelFB from '../../Models/orderModelFB.js';
 import orderModel from '../../Models/orderModel.js';
 import styles from './GetAllMenu.module.css';
 
+import swishLogo from '../../images/swishLogo.png';
+import swishQR from '../../images/swish-QR-small.png';
+
 const AllMenus = () => {
   const [menus, setMenus] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
   const [expandedCategories, setExpandedCategories] = useState(['Menu', 'Burger', 'Fries', 'Drink']); // Initialize with all categories
   const [infoMenu, setInfoMenu] = useState(null); // State for managing the info menu display
-  const [customerInfo, setCustomerInfo] = useState({ name: '', phoneNumber: '', email: '' }); // State for customer info form
+  const [customerInfo, setCustomerInfo] = useState({ name: '', phoneNumber: '', email: '', paymentChoice: '', creditCardNumber: '' }); // State for customer info form
   const [showForm, setShowForm] = useState(false); // State to control form visibility
+  const [showQRcode, setShowQRcode] = useState(false);
+  const [isPayed, setIsPayed] = useState(false);
+  const [paymentInfo, setShowPaymentInfo] = useState(false);
+  const [formInfo, setShowFormInfo] = useState(false);
   const categories = ['Menu', 'Burger', 'Fries', 'Drink']; // Define categories
   const navigate = useNavigate();
 
@@ -27,11 +34,9 @@ const AllMenus = () => {
     try {
       if (process.env.REACT_APP_ENV === 'prod') {
         const data = await foodModel.getAll();
-        console.log(data);
         setMenus(data);
       } else {
         const data = await menuModel.getAll();
-        console.log(data);
         setMenus(data);
       }
     } catch (error) {
@@ -70,6 +75,14 @@ const AllMenus = () => {
     setInfoMenu(null);
   };
 
+  const hidePayInfo = () => {
+    setShowPaymentInfo(null);
+  };
+
+  const hideFormInfo = () => {
+    setShowFormInfo(null);
+  };
+
   const createOrder = async () => {
     try {
       const totalPrice = selectedItems.reduce((total, itemId) => {
@@ -84,8 +97,7 @@ const AllMenus = () => {
 
       const validItems = itemDetails.filter(item => item !== null);
 
-      console.log(validItems);
-
+      // For production (Firebase)
       if (process.env.REACT_APP_ENV === 'prod') {
         const orderRef = await orderModelFB.create({
           customerName: customerInfo.name,
@@ -104,21 +116,17 @@ const AllMenus = () => {
           items: validItemsJSON,
           totalPrice: totalPrice,
         });
-        console.log(orderRef.orderId);
         navigate(`/order/${orderRef.orderId}`);
       }
 
-
-
       // Reset customer info and selected items
-      setCustomerInfo({ name: '', phoneNumber: '', email: '' });
+      setCustomerInfo({ name: '', phoneNumber: '', email: '', paymentChoice: '', creditCardNumber: '' });
       setSelectedItems([]);
 
       // Remove saved order data and last visited order page URL from localStorage
       localStorage.removeItem('savedOrderData');
       localStorage.removeItem('lastVisitedOrderPage');
 
-      console.log(customerInfo);
     } catch (error) {
       console.error('Error creating order: ', error);
     }
@@ -126,6 +134,7 @@ const AllMenus = () => {
 
   return (
     <div>
+      {/* If user clicks on ingredients information to the left of each meny */}
       {infoMenu && (
       <div className={styles.infoCardOverlay}>
         <div className={styles.infoCard}>
@@ -139,6 +148,28 @@ const AllMenus = () => {
         </div>
       </div>
     )}
+    {/* If user clicks on credit card information */}
+    {paymentInfo && (
+      <div className={styles.infoCardOverlay}>
+        <div className={styles.infoCard}>
+          <h3>How to add a correct credit card:</h3>
+          <p>Example 1: XXXX-XXXX-XXXX-XXXX</p>
+          <p>Example 2: AAAABBBBCCCCDDDD</p>
+          <button onClick={hidePayInfo}>Close</button>
+        </div>
+      </div>
+    )}
+    {/* If the user clicks Send Order but did something in the form wrong */}
+    {formInfo && (
+      <div className={styles.infoCardOverlay}>
+        <div className={styles.infoCard}>
+          <h3>Check the inputs above and try again.</h3>
+          <p>You need a name, mail, phonenumber and a valid pay method.</p>
+          <button onClick={hideFormInfo}>Close</button>
+        </div>
+      </div>
+    )}
+    {/* Show all menues in their categories, with a clickable little button to show the ingredients and a button to add the item in the order*/}
       {categories.map(category => (
         <div key={category}>
           <h2 className={styles.AllMenuH2} onClick={() => toggleCategory(category)}>
@@ -157,6 +188,7 @@ const AllMenus = () => {
           </div>
         </div>
       ))}
+      {/* Show all selected items */}
       <h2 className={`${styles.AllMenuH2} ${styles.selectedItems}`}>Selected Items</h2>
       <ul>
         {selectedItems.map((id, index) => {
@@ -169,6 +201,7 @@ const AllMenus = () => {
           );
         })}
       </ul>
+      {/* Order form */}
       {showForm ? (
         <div className={styles.userForm}>
           <h2 className={styles.AllMenuH2 && styles.submitOrderH2}>Enter and sumbit your order</h2>
@@ -193,7 +226,75 @@ const AllMenus = () => {
             value={customerInfo.email}
             onChange={(e) => setCustomerInfo({ ...customerInfo, email: e.target.value })}
           />
-          <button className={styles.placeOrder} onClick={() => { createOrder(); setShowForm(false); }}>Send Order</button>
+          <select
+            className={styles.placeOrderSelect}
+            value={customerInfo.paymentChoice}
+            onChange={(e) => setCustomerInfo({ ...customerInfo, paymentChoice: e.target.value })}
+          >
+            <option value="">Select Payment Option</option>
+            <option value="Credit Card">Credit Card</option>
+            <option value="Swish">Swish</option>
+            <option value="Atplace">Pay at deliver</option>
+          </select>
+        {/* If the user choosed Credit card, show the credit card input with a clickable information*/}
+        {customerInfo.paymentChoice === "Credit Card" && (
+          <div>
+            <p className={styles.infoSpan}>Click circle for info </p>
+            <span className={styles.infoSpan} onClick={() => setShowPaymentInfo(true)}><CiCircleInfo /> </span>
+            <input 
+                className={styles.placeOrderInput}
+                type="text"
+                placeholder="Credit Card Number"
+                value={customerInfo.creditCardNumber}
+                minLength={16}
+                maxLength={19}
+                onChange={(e) => {
+                  const inputVal = e.target.value;
+                  setCustomerInfo({ ...customerInfo, creditCardNumber: inputVal});
+                  if (inputVal.length === 16) {
+                    setIsPayed(true);
+                  }
+                }}
+            />
+          </div>
+        )}
+        {customerInfo.paymentChoice === "Swish" && !showQRcode && !isPayed && (
+            <div>
+                {/* Clickable Swish logo to get sent to the next part */}
+                <img className={styles.logoImage} src={swishLogo} onClick={() => {setShowQRcode(true); }} alt="Swish Logo" />
+            </div>
+        )}
+        {customerInfo.paymentChoice === "Swish" && showQRcode && !isPayed && (
+            <div>
+                {/* Clickable Swish image to get sent to the next part */}
+                <p className={styles.infoTextSwish}>Click the image to continue</p>
+                <img className={styles.qrImage} src={swishQR} onClick={() => {setIsPayed(true); }} alt="Swish QR" />
+
+            </div>
+        )}
+        {/* Tells the user that i can now Send the order */}
+        {customerInfo.paymentChoice === "Swish" && showQRcode && isPayed && (
+            <div>
+                <p className={styles.infoTextSwish}>You can now Send the order</p>
+            </div>
+        )}
+          {/* Button to send the order if all statements is true */}
+           <button 
+              className={styles.placeOrder} 
+              onClick={() => { 
+                  if (customerInfo.email !== '' && customerInfo.name !== '' && customerInfo.phoneNumber !== '') {
+                    if (customerInfo.paymentChoice === "Atplace" || customerInfo.paymentChoice === "Swish" || customerInfo.paymentChoice === "Credit Card") {
+                      createOrder(); 
+                      setShowForm(false);
+                      }
+                  } else {
+                    setShowFormInfo(true);
+                  }
+              }}
+
+          >
+              Send Order
+          </button>
         </div>
       ) : (
         <button className={styles.placeOrder} onClick={() => setShowForm(true)}>Place Order &rarr;</button>
