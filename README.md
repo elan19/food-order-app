@@ -2,6 +2,8 @@
 
 This project is a webbased food-ordering system which lets the user select between Burgers, Fries and Drinks and then make the order which get sent to the database.
 
+It was made during the spring 2024 on BTH (Blekinge Tekniska Högskola) during the final exam for the education.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
